@@ -8,6 +8,7 @@ import {
 	ThemeProvider,
 } from "@mui/material/styles";
 import { Button } from "@mui/material";
+
 const theme = createTheme({
 	palette: {
 		primary: { main: "#C38654", light: "rgba(195, 134, 84, 0.15)" },
@@ -17,6 +18,7 @@ const theme = createTheme({
 		fontFamily: '"Roboto", sans-serif',
 	},
 });
+
 function App() {
 	const [count, setCount] = useState(0);
 
