@@ -1,6 +1,5 @@
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
@@ -16,6 +15,7 @@ import {
 	Search,
 	Settings,
 } from "@mui/icons-material";
+import { Container } from "@mui/material";
 
 function Header() {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -27,7 +27,7 @@ function Header() {
 		setAnchorEl(null);
 	};
 	return (
-		<Box sx={{ flexGrow: 1 }}>
+		<Container sx={{ flexGrow: 1, position: "relative" }}>
 			<AppBar position="fixed">
 				<Toolbar sx={{ color: "primary.dark" }}>
 					<IconButton color="inherit" aria-label="logo icon" size="large">
@@ -105,7 +105,7 @@ function Header() {
 					</MenuItem>
 				</Menu>
 			</AppBar>
-		</Box>
+		</Container>
 	);
 }
 

@@ -6,6 +6,7 @@ import {
 	ThemeProvider,
 } from "@mui/material/styles";
 import Header from "./Components/Header/Header";
+import Landing from "./Sections/Landing/Landing";
 
 const theme = createTheme({
 	palette: {
@@ -21,6 +22,7 @@ function App() {
 	return (
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<Header />
+			<Landing />
 		</ThemeProvider>
 	);
 }
