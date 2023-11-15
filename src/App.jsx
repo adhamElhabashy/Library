@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import Header from "./Components/Header/Header";
 import Landing from "./Sections/Landing/Landing";
 import { fetchWebBooks } from "./Features/WebBooksSlice";
+import Topic from "./Sections/Topic/Topic";
 
 const theme = createTheme({
 	palette: {
@@ -30,6 +31,7 @@ function App() {
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<Header />
 			<Landing />
+			<Topic />
 		</ThemeProvider>
 	);
 }
