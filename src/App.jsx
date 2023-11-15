@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import {
 	createTheme,
 	responsiveFontSizes,
 	ThemeProvider,
 } from "@mui/material/styles";
+import { useDispatch } from "react-redux";
 import Header from "./Components/Header/Header";
 import Landing from "./Sections/Landing/Landing";
+import { fetchBooks } from "./Features/BooksSlice";
 
 const theme = createTheme({
 	palette: {
@@ -19,6 +21,10 @@ const theme = createTheme({
 });
 
 function App() {
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchBooks());
+	}, []);
 	return (
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<Header />
