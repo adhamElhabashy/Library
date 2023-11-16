@@ -1,6 +1,4 @@
 .parent-box {
-	width: 100%;
-	height: 100%;
 	perspective: 600px;
 }
 .child-box {
