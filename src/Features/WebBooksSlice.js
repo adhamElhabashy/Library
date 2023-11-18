@@ -7,28 +7,28 @@ const initialState = {
 	error: "",
 };
 
-export const fetchBooks = createAsyncThunk("books/fetchBooks", async () => {
+export const fetchWebBooks = createAsyncThunk("books/fetchBooks", async () => {
 	const response = await axios.get(
-		`https://www.googleapis.com/books/v1/volumes?q=*&langRestrict=en&maxResults=40&key=${
+		`https://www.googleapis.com/books/v1/volumes?q=web-development&langRestrict=en&maxResults=40&key=${
 			import.meta.env.VITE_GOOGLE_BOOKS_API_KEY
 		}`
 	);
 	return response.data;
 });
 
-const BooksSlice = createSlice({
+const WebBooksSlice = createSlice({
 	name: "books",
 	initialState,
 	extraReducers: (builder) => {
-		builder.addCase(fetchBooks.pending, (state) => {
+		builder.addCase(fetchWebBooks.pending, (state) => {
 			state.loading = true;
 		});
-		builder.addCase(fetchBooks.fulfilled, (state, action) => {
+		builder.addCase(fetchWebBooks.fulfilled, (state, action) => {
 			state.loading = false;
 			state.data = action.payload;
 			state.error = "";
 		});
-		builder.addCase(fetchBooks.rejected, (state, action) => {
+		builder.addCase(fetchWebBooks.rejected, (state, action) => {
 			state.loading = false;
 			state.data = [];
 			state.error = action.error.message;
@@ -36,4 +36,4 @@ const BooksSlice = createSlice({
 	},
 });
 
-export default BooksSlice.reducer;
+export default WebBooksSlice.reducer;
