@@ -1,10 +1,13 @@
 import React from "react";
 import "./BookCard.css";
-import { Box, Paper, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 function BookCard({ thumbnail, title, subtitle, authors, publishedDate }) {
 	return (
-		<Box className="parent-box" style={{ width: 248, height: 290 }}>
+		<Box
+			className="parent-box"
+			sx={{ width: 248, height: 290, boxShadow: "0 0 10px primary" }}
+		>
 			<Box className="child-box" sx={{ bgcolor: "primary.main" }}>
 				<div className="face front">
 					<img src={thumbnail} alt="book thumbnail" />
