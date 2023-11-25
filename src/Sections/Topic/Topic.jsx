@@ -4,8 +4,8 @@ import BooksOfTopic from "./BooksOfTopic/BooksOfTopic";
 
 function Topic() {
 	return (
-		<div className="topic">
-			<SectionTitle />
+		<div className="topic" style={{ paddingTop: 50, paddingBottom: 50 }}>
+			<SectionTitle>Web Development</SectionTitle>
 			<BooksOfTopic />
 		</div>
 	);

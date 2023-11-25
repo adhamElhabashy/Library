@@ -1,15 +1,14 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
 import {
 	createTheme,
 	responsiveFontSizes,
 	ThemeProvider,
 } from "@mui/material/styles";
-import { useDispatch } from "react-redux";
 import Header from "./Components/Header/Header";
 import Landing from "./Sections/Landing/Landing";
-import { fetchWebBooks } from "./Features/WebBooksSlice";
 import Topic from "./Sections/Topic/Topic";
+import Search from "./Sections/Search/Search";
 
 const theme = createTheme({
 	palette: {
@@ -23,15 +22,12 @@ const theme = createTheme({
 
 function App() {
 	// this is a temporary dispatch
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchWebBooks(0));
-	}, []);
 	return (
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<Header />
 			<Landing />
 			<Topic />
+			<Search />
 		</ThemeProvider>
 	);
 }
