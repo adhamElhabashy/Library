@@ -3,15 +3,26 @@ import { useSelector } from "react-redux/es/hooks/useSelector";
 import BookCard from "../../../Components/BookCard/BookCard";
 import { Container, Grid } from "@mui/material";
 import Pagination from "@mui/material/Pagination";
-
+import { useDispatch } from "react-redux";
+import { fetchWebBooks } from "../../../Features/WebBooksSlice";
 function BooksOfTopic() {
 	const [books, setBooks] = useState([]);
 	const booksData = useSelector((state) => state.books);
-	const [page, setPage] = React.useState(1);
+	// added pagination functionality
+	const dispatch = useDispatch();
+	const [page, setPage] = useState(1);
+	// 39 because api items index start from 0
+	const [recordsPerPage, setRecordsPerPage] = useState(39);
+	const indexOfLastRecord = page * recordsPerPage;
+	const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
 
 	useEffect(() => {
 		setBooks(booksData.data);
 	}, [booksData]);
+
+	useEffect(() => {
+		dispatch(fetchWebBooks(indexOfFirstRecord));
+	}, [page]);
 
 	const handleChange = (event, value) => {
 		setPage(value);
@@ -25,9 +36,9 @@ function BooksOfTopic() {
 					gap={5}
 					sx={{ justifyContent: "center", alignItems: "center" }}
 				>
-					{books?.items.map((book) => {
+					{books?.items.map((book, index) => {
 						return (
-							<Grid item>
+							<Grid item key={index}>
 								<BookCard
 									thumbnail={book.volumeInfo.imageLinks?.thumbnail}
 									title={book?.volumeInfo.title}

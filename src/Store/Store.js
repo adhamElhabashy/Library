@@ -1,6 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import BooksReducer from "../Features/WebBooksSlice";
+import WebBooksReducer from "../Features/WebBooksSlice";
+import BooksSearchReducer from "../Features/BooksSearchSlice";
 
-const store = configureStore({ reducer: { books: BooksReducer } });
+const store = configureStore({
+	reducer: { books: WebBooksReducer, booksSearch: BooksSearchReducer },
+});
 
 export default store;

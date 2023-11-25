@@ -25,7 +25,7 @@ function App() {
 	// this is a temporary dispatch
 	const dispatch = useDispatch();
 	useEffect(() => {
-		dispatch(fetchWebBooks());
+		dispatch(fetchWebBooks(0));
 	}, []);
 	return (
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
