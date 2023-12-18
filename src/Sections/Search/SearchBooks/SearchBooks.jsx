@@ -13,15 +13,16 @@ function SearchBooks() {
 	if (books) {
 		console.log(books);
 		return (
-			<Container className="books-list">
+			<Container className="books-list" style={{ paddingTop: "100px" }}>
 				<Grid
 					container
 					gap={5}
+					rowGap={15}
 					sx={{ justifyContent: "center", alignItems: "center" }}
 				>
 					{books?.map((book, index) => {
 						return (
-							<Grid item key={index}>
+							<Grid item key={index} md={3}>
 								<BookCard
 									thumbnail={book.volumeInfo.imageLinks?.thumbnail}
 									title={book?.volumeInfo.title}
