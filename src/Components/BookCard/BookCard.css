@@ -1,34 +1,27 @@
-.parent-box {
-	perspective: 600px;
-}
-.child-box {
+.book-card {
 	width: 100%;
-	height: 100%;
+	height: 250px;
+}
+
+.book-card .face {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transform-style: preserve-3d;
-	transition: transform 1s;
-	transform-origin: right center;
-	cursor: pointer;
+	flex-direction: column;
 }
 
-.face {
+.img-holder {
+	position: relative;
+	height: 100px;
+}
+
+.book-card .img-holder img {
 	position: absolute;
-	backface-visibility: hidden;
-	width: 100%;
-	height: 100%;
-}
-
-.face.front img {
-	width: 100%;
-	height: 100%;
-}
-
-.face.back {
-	transform: rotateY(180deg);
-}
-
-.child-box:hover {
-	transform: translateX(-100%) rotateY(-180deg);
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 158px;
+	height: 198px;
+	box-shadow: 0px 0px 6px black;
 }

@@ -4,47 +4,26 @@ import { Box, Typography } from "@mui/material";
 
 function BookCard({ thumbnail, title, subtitle, authors, publishedDate }) {
 	return (
-		<Box
-			className="parent-box"
-			sx={{ width: 248, height: 290, boxShadow: "0 0 10px primary" }}
-		>
-			<Box className="child-box" sx={{ bgcolor: "primary.main" }}>
-				<div className="face front">
-					<img src={thumbnail} alt="book thumbnail" />
+		<Box className="book-card" sx={{ bgcolor: "primary.light" }}>
+			<div className="face">
+				<div className="img-holder">
+					<img src={thumbnail} alt="book image" />
 				</div>
-				<div className="face back" style={{ padding: 3, overflowY: "auto" }}>
-					<Typography
-						variant="h6"
-						sx={{ color: "primary.dark", padding: "5px" }}
-						textAlign="center"
-					>
-						{title}
-					</Typography>
-					<Typography
-						variant="subtitle1"
-						sx={{ color: "primary.dark" }}
-						textAlign="center"
-					>
-						{subtitle}
-					</Typography>
-					<Typography
-						variant="subtitle1"
-						sx={{ color: "primary.dark" }}
-						align="center"
-						pt={1}
-					>
-						{authors}
-					</Typography>
-					<Typography
-						variant="subtitle1"
-						sx={{ color: "primary.dark" }}
-						align="center"
-						pt={1}
-					>
-						{publishedDate}
-					</Typography>
-				</div>
-			</Box>
+				<Typography
+					variant="h6"
+					textAlign="center"
+					sx={{ color: "primary.dark" }}
+				>
+					{title}
+				</Typography>
+				<Typography
+					variant="subtitle1"
+					align="center"
+					sx={{ color: "secondary.light" }}
+				>
+					{authors}
+				</Typography>
+			</div>
 		</Box>
 	);
 }
