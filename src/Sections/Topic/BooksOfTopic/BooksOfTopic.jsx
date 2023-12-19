@@ -31,12 +31,7 @@ function BooksOfTopic() {
 	if (books?.length !== 0) {
 		return (
 			<Container className="books-list" style={{ paddingTop: "100px" }}>
-				<Grid
-					container
-					gap={5}
-					rowGap={15}
-					sx={{ justifyContent: "center", alignItems: "center" }}
-				>
+				<Grid container gap={5} rowGap={15} sx={{ justifyContent: "center" }}>
 					{books?.items.map((book, index) => {
 						return (
 							<Grid item key={index} md={3}>
