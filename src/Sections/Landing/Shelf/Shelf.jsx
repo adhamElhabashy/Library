@@ -16,11 +16,10 @@ function Shelf() {
 		return (
 			<div className="shelf">
 				<BookCard
+					object={randombook}
 					thumbnail={randombook.volumeInfo.imageLinks?.thumbnail}
 					title={randombook?.volumeInfo.title}
-					subtitle={randombook?.volumeInfo.subtitle}
 					authors={randombook?.volumeInfo?.authors?.join(", ")}
-					publishedDate={randombook?.volumeInfo.publishedDate}
 				/>
 			</div>
 		);

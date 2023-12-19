@@ -19,11 +19,10 @@ function SearchBooks() {
 						return (
 							<Grid item key={index} md={3}>
 								<BookCard
+									object={book}
 									thumbnail={book.volumeInfo.imageLinks?.thumbnail}
 									title={book?.volumeInfo.title}
-									subtitle={book?.volumeInfo.subtitle}
 									authors={book?.volumeInfo?.authors?.join(", ")}
-									publishedDate={book?.volumeInfo.publishedDate}
 								/>
 							</Grid>
 						);
