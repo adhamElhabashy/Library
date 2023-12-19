@@ -2,7 +2,7 @@ import React from "react";
 import "./BookCard.css";
 import { Box, Button, Typography } from "@mui/material";
 
-function BookCard({ thumbnail, title, subtitle, authors, publishedDate }) {
+function BookCard({ thumbnail, title, authors }) {
 	return (
 		<Box className="book-card" sx={{ bgcolor: "primary.light" }}>
 			<div className="face">
