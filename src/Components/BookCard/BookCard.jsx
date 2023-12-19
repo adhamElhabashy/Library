@@ -1,6 +1,6 @@
 import React from "react";
 import "./BookCard.css";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 function BookCard({ thumbnail, title, subtitle, authors, publishedDate }) {
 	return (
@@ -23,6 +23,26 @@ function BookCard({ thumbnail, title, subtitle, authors, publishedDate }) {
 				>
 					{authors}
 				</Typography>
+				<div className="action-buttons">
+					<Button
+						variant="outlined"
+						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
+					>
+						Will Read
+					</Button>
+					<Button
+						variant="outlined"
+						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
+					>
+						Reading
+					</Button>
+					<Button
+						variant="outlined"
+						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
+					>
+						Read
+					</Button>
+				</div>
 			</div>
 		</Box>
 	);

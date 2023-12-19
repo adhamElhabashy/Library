@@ -30,3 +30,22 @@
 	height: 198px;
 	box-shadow: 0px 0px 6px black;
 }
+
+.book-card .action-buttons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	opacity: 0;
+	transition-property: opacity, margin-top;
+	transition-duration: 0.6s;
+	margin-top: 0px;
+}
+
+.book-card .action-buttons Button:not(:last-of-type) {
+	margin-right: 5px;
+}
+
+.book-card:hover > .face .action-buttons {
+	opacity: 1;
+	margin-top: 50px;
+}
