@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 export function useLocalStorageData() {
-	const savedBooks = window.localStorage.getItem("saved-books");
+	const [savedBooks, setBooks] = useState(
+		window.localStorage.getItem("saved-books")
+	);
+
 	return JSON.parse(savedBooks);
 }
