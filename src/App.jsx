@@ -9,6 +9,7 @@ import Header from "./Components/Header/Header";
 import Landing from "./Sections/Landing/Landing";
 import Topic from "./Sections/Topic/Topic";
 import Search from "./Sections/Search/Search";
+import Challenges from "./Sections/Challenges/Challenges";
 
 const theme = createTheme({
 	palette: {
@@ -27,6 +28,7 @@ function App() {
 			<Header />
 			<Landing />
 			<Topic />
+			<Challenges />
 			<Search />
 		</ThemeProvider>
 	);

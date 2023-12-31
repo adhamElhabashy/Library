@@ -10,7 +10,7 @@ function ChallengesList() {
 		<Box sx={{ paddingTop: "100px", bgcolor: "primary.main" }}>
 			<Container>
 				<Grid container>
-					{savedBooksContext.savedBooks.map((obj, index) => (
+					{savedBooksContext.savedBooks?.map((obj, index) => (
 						<Grid key={index} item>
 							<BookCard
 								object={obj}

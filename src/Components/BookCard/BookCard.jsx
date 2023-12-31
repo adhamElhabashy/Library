@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./BookCard.css";
 import { Box, Button, Typography } from "@mui/material";
 import { saveInLocalStorage } from "../../Functions/SaveInLocalStorage";
+import SavedBooksContext from "../../Context/SavedBooksContext";
 
 function BookCard({ object, thumbnail, title, authors }) {
+	const booksContext = useContext(SavedBooksContext);
+
 	return (
 		<Box className="book-card" sx={{ bgcolor: "primary.light" }}>
 			<div className="face">
@@ -28,21 +31,42 @@ function BookCard({ object, thumbnail, title, authors }) {
 					<Button
 						variant="outlined"
 						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
-						onClick={() => saveInLocalStorage(object, "will read")}
+						onClick={() => {
+							saveInLocalStorage(object, "will read");
+							// update the context array with the new books
+							booksContext.addBookToTheList({
+								...object,
+								readingStatus: "will read",
+							});
+						}}
 					>
 						Will Read
 					</Button>
 					<Button
 						variant="outlined"
 						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
-						onClick={() => saveInLocalStorage(object, "reading")}
+						onClick={() => {
+							saveInLocalStorage(object, "reading");
+							// update the context array with the new books
+							booksContext.addBookToTheList({
+								...object,
+								readingStatus: "reading",
+							});
+						}}
 					>
 						Reading
 					</Button>
 					<Button
 						variant="outlined"
 						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
-						onClick={() => saveInLocalStorage(object, "read")}
+						onClick={() => {
+							saveInLocalStorage(object, "read");
+							// update the context array with the new books
+							booksContext.addBookToTheList({
+								...object,
+								readingStatus: "read",
+							});
+						}}
 					>
 						Read
 					</Button>
