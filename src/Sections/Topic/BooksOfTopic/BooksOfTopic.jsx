@@ -12,7 +12,7 @@ function BooksOfTopic() {
 	const dispatch = useDispatch();
 	const [page, setPage] = useState(1);
 	// 39 because api items index start from 0
-	const [recordsPerPage, setRecordsPerPage] = useState(39);
+	const [recordsPerPage, setRecordsPerPage] = useState(9);
 	const indexOfLastRecord = page * recordsPerPage;
 	const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
 

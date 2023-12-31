@@ -11,7 +11,7 @@ export const fetchWebBooks = createAsyncThunk(
 	"webBooks/fetchWebBooks",
 	async (startIndex, thunkApi) => {
 		const response = await axios.get(
-			`https://www.googleapis.com/books/v1/volumes?q=web-development&langRestrict=en&startIndex=${startIndex}&maxResults=40&key=${
+			`https://www.googleapis.com/books/v1/volumes?q=web-development&langRestrict=en&startIndex=${startIndex}&key=${
 				import.meta.env.VITE_GOOGLE_BOOKS_API_KEY
 			}`
 		);
