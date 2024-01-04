@@ -7,22 +7,20 @@ function ChallengesList() {
 	const savedBooksContext = useContext(SavedBooksContext);
 
 	return (
-		<Box sx={{ paddingTop: "100px", bgcolor: "primary.main" }}>
-			<Container>
-				<Grid container>
-					{savedBooksContext.savedBooks?.map((obj, index) => (
-						<Grid key={index} item>
-							<BookCard
-								object={obj}
-								thumbnail={obj.volumeInfo.imageLinks?.thumbnail}
-								title={obj?.volumeInfo.title}
-								authors={obj?.volumeInfo?.authors?.join(", ")}
-							/>
-						</Grid>
-					))}
-				</Grid>
-			</Container>
-		</Box>
+		<Container>
+			<Grid container>
+				{savedBooksContext.savedBooks?.map((obj, index) => (
+					<Grid key={index} item>
+						<BookCard
+							object={obj}
+							thumbnail={obj.volumeInfo.imageLinks?.thumbnail}
+							title={obj?.volumeInfo.title}
+							authors={obj?.volumeInfo?.authors?.join(", ")}
+						/>
+					</Grid>
+				))}
+			</Grid>
+		</Container>
 	);
 }
 
