@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import SavedBooksContext from "../../../Context/SavedBooksContext";
-import { Box, Container, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import BookCard from "../../../Components/BookCard/BookCard";
 
 function ChallengesList() {
