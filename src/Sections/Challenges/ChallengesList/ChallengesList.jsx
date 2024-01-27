@@ -7,10 +7,10 @@ function ChallengesList() {
 	const savedBooksContext = useContext(SavedBooksContext);
 
 	return (
-		<Container>
-			<Grid container>
+		<Container style={{ paddingTop: "100px" }}>
+			<Grid container gap={5} rowGap={15} sx={{ justifyContent: "center" }}>
 				{savedBooksContext.savedBooks?.map((obj, index) => (
-					<Grid key={index} item>
+					<Grid item key={index} md={3}>
 						<BookCard
 							object={obj}
 							thumbnail={obj.volumeInfo.imageLinks?.thumbnail}
