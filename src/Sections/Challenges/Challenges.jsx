@@ -10,10 +10,8 @@ function Challenges() {
 		<div className="challenges">
 			<Box
 				sx={{
-					marginTop: "50px",
-					padding: "30px 0",
+					padding: "100px 0",
 					bgcolor: "primary.main",
-					minHeight: "100vh",
 					position: "relative",
 				}}
 			>
