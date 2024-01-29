@@ -4,7 +4,10 @@ import BooksOfTopic from "./BooksOfTopic/BooksOfTopic";
 
 function Topic() {
 	return (
-		<div className="topic" style={{ paddingTop: 50, paddingBottom: 50 }}>
+		<div
+			className="topic"
+			style={{ paddingTop: "100px", paddingBottom: "100px" }}
+		>
 			<SectionTitle>Web Development</SectionTitle>
 			<BooksOfTopic />
 		</div>
