@@ -22,7 +22,6 @@ const theme = createTheme({
 });
 
 function App() {
-	// this is a temporary dispatch
 	return (
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<Header />

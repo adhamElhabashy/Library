@@ -1,17 +1,17 @@
 import React, { useContext } from "react";
 import SavedBooksContext from "../../../Context/SavedBooksContext";
 import { Container, Grid } from "@mui/material";
-import BookCard from "../../../Components/BookCard/BookCard";
+import ChallengesCard from "../../../Components/ChallengesCard/ChallengesCard";
 
 function ChallengesList() {
 	const savedBooksContext = useContext(SavedBooksContext);
 
 	return (
-		<Container style={{ paddingTop: "100px" }}>
+		<Container>
 			<Grid container gap={5} rowGap={15} sx={{ justifyContent: "center" }}>
 				{savedBooksContext.savedBooks?.map((obj, index) => (
 					<Grid item key={index} md={3}>
-						<BookCard
+						<ChallengesCard
 							object={obj}
 							thumbnail={obj.volumeInfo.imageLinks?.thumbnail}
 							title={obj?.volumeInfo.title}
