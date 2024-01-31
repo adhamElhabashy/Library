@@ -5,11 +5,12 @@ import {
 	responsiveFontSizes,
 	ThemeProvider,
 } from "@mui/material/styles";
-import Header from "./Components/Header/Header";
-import Landing from "./Sections/Landing/Landing";
-import Topic from "./Sections/Topic/Topic";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Sections/Home/Home";
 import Search from "./Sections/Search/Search";
 import Challenges from "./Sections/Challenges/Challenges";
+import Topic from "./Sections/Topic/Topic";
+import Settings from "./Sections/Settings/Settings";
 
 const theme = createTheme({
 	palette: {
@@ -24,11 +25,13 @@ const theme = createTheme({
 function App() {
 	return (
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
-			<Header />
-			<Landing />
-			<Topic />
-			<Challenges />
-			<Search />
+			<Routes>
+				<Route path="/" element={<Home />} />
+				<Route path="favourite" element={<Topic />} />
+				<Route path="search" element={<Search />} />
+				<Route path="saved-books" element={<Challenges />} />
+				<Route path="settings" element={<Settings />} />
+			</Routes>
 		</ThemeProvider>
 	);
 }
