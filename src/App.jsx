@@ -12,6 +12,7 @@ import Search from "./Sections/Search/Search";
 import Challenges from "./Sections/Challenges/Challenges";
 import Topic from "./Sections/Topic/Topic";
 import Settings from "./Sections/Settings/Settings";
+import NoPageFound from "./Sections/NoPageFound/NoPageFound";
 
 const theme = createTheme({
 	palette: {
@@ -33,6 +34,7 @@ function App() {
 				<Route path="/search" element={<Search />} />
 				<Route path="/saved-books" element={<Challenges />} />
 				<Route path="/settings" element={<Settings />} />
+				<Route path="*" element={<NoPageFound />} />
 			</Routes>
 			{/* <Outlet /> */}
 		</ThemeProvider>
