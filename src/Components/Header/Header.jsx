@@ -35,7 +35,9 @@ function Header() {
 						<MenuBook fontSize="large" />
 					</IconButton>
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						The Library
+						<Link to={"/"} style={{ color: "inherit", textDecoration: "none" }}>
+							The Library
+						</Link>
 					</Typography>
 					<div>
 						<IconButton
