@@ -83,13 +83,6 @@ function Header() {
 						Search
 					</MenuItem>
 					<MenuItem onClick={handleClose}>
-						<EmojiEventsIcon
-							className="menu-icons"
-							sx={{ color: "primary.dark" }}
-						/>
-						Challenges
-					</MenuItem>
-					<MenuItem onClick={handleClose}>
 						<Bookmarks
 							className="menu-icons"
 							sx={{ paddingRight: 1, color: "primary.dark" }}
