@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from "@mui/material";
 import "./ChallengesCard.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ChallengesCard({ object, thumbnail, title, authors }) {
 	return (
@@ -8,9 +9,11 @@ function ChallengesCard({ object, thumbnail, title, authors }) {
 			className="challenge-card"
 			sx={{ display: "flex", justifyContent: "center" }}
 		>
-			<div className="img-holder">
-				<img src={thumbnail} alt={title + " book"} />
-			</div>
+			<Link to={`/books/${object?.id}`}>
+				<div className="img-holder">
+					<img src={thumbnail} alt={title + " book"} />
+				</div>
+			</Link>
 			<div className="book-details">
 				<Typography
 					variant="subtitle1"

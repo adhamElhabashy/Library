@@ -5,11 +5,12 @@ import {
 	responsiveFontSizes,
 	ThemeProvider,
 } from "@mui/material/styles";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Home from "./Sections/Home/Home";
 import Search from "./Sections/Search/Search";
 import Challenges from "./Sections/Challenges/Challenges";
+import BookPage from "./Components/BookPage/BookPage";
 import Topic from "./Sections/Topic/Topic";
 import Settings from "./Sections/Settings/Settings";
 import NoPageFound from "./Sections/NoPageFound/NoPageFound";
@@ -33,10 +34,10 @@ function App() {
 				<Route path="/favourite" element={<Topic />} />
 				<Route path="/search" element={<Search />} />
 				<Route path="/saved-books" element={<Challenges />} />
+				<Route path="/books/:bookId" element={<BookPage />} />
 				<Route path="/settings" element={<Settings />} />
 				<Route path="*" element={<NoPageFound />} />
 			</Routes>
-			{/* <Outlet /> */}
 		</ThemeProvider>
 	);
 }

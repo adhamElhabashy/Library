@@ -3,6 +3,7 @@ import "./BookCard.css";
 import { Box, Button, Typography } from "@mui/material";
 import { saveInLocalStorage } from "../../Functions/SaveInLocalStorage";
 import SavedBooksContext from "../../Context/SavedBooksContext";
+import { Link } from "react-router-dom";
 
 function BookCard({ object, thumbnail, title, authors }) {
 	const booksContext = useContext(SavedBooksContext);
@@ -10,9 +11,11 @@ function BookCard({ object, thumbnail, title, authors }) {
 	return (
 		<Box className="book-card" sx={{ bgcolor: "primary.light" }}>
 			<div className="face">
-				<div className="img-holder">
-					<img src={thumbnail} alt="book image" />
-				</div>
+				<Link to={`/books/${object?.id}`}>
+					<div className="img-holder">
+						<img src={thumbnail} alt={title + " book"} />
+					</div>
+				</Link>
 				<Typography
 					variant="h6"
 					textAlign="center"
