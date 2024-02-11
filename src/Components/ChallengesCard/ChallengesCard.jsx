@@ -1,9 +1,10 @@
+import React from "react";
 import { Box, Button, Typography } from "@mui/material";
 import "./ChallengesCard.css";
-import React from "react";
 import { Link } from "react-router-dom";
 
-function ChallengesCard({ object, thumbnail, title, authors }) {
+import NoteInput from "../NoteInput/NoteInput";
+function ChallengesCard({ object, thumbnail, title }) {
 	return (
 		<Box
 			className="challenge-card"
@@ -27,9 +28,7 @@ function ChallengesCard({ object, thumbnail, title, authors }) {
 				>
 					{object.readingStatus}
 				</Button>
-				<Button variant="contained" sx={{ bgcolor: "primary.dark" }}>
-					Add Note
-				</Button>
+				<NoteInput />
 			</div>
 		</Box>
 	);
