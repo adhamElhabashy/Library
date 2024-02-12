@@ -17,7 +17,9 @@ function Challenges() {
 			>
 				<SectionTitle>Your Challenges and Saved Books</SectionTitle>
 				{savedBooksContext.savedBooks ? (
-					<ChallengesList />
+					<>
+						<ChallengesList />
+					</>
 				) : (
 					<Typography
 						variant="h5"

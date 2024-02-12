@@ -1,14 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Popover from "@mui/material/Popover";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
+import { addNote } from "../../Functions/addNote";
 
-function NoteInput() {
-	const [name, setName] = React.useState("What Is Your Note");
+function NoteInput({ objectId }) {
+	const [note, setNote] = React.useState("What Is Your Note");
 	const [anchorEl, setAnchorEl] = useState(null);
-
+	const [savedBooks, setSavedBooks] = useState(
+		JSON.parse(window.localStorage.getItem("saved-books"))
+	);
 	const open = Boolean(anchorEl);
-
 	const id = open ? "simple-popover" : undefined;
 
 	const handleClick = (event) => {
@@ -18,6 +20,11 @@ function NoteInput() {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+
+	useEffect(() => {
+		setSavedBooks(JSON.parse(window.localStorage.getItem("saved-books")));
+	}, [window.localStorage.getItem("saved-books")]);
+
 	return (
 		<div className="note-input">
 			<Button
@@ -38,12 +45,16 @@ function NoteInput() {
 				}}
 			>
 				<TextField
-					value={name}
+					value={note}
 					onChange={(event) => {
-						setName(event.target.value);
+						setNote(event.target.value);
 					}}
 				/>
-				<Button variant="contained" sx={{ padding: "15px 30px" }}>
+				<Button
+					variant="contained"
+					sx={{ padding: "15px 30px" }}
+					onClick={(e) => addNote(objectId, savedBooks, note)}
+				>
 					Add
 				</Button>
 			</Popover>

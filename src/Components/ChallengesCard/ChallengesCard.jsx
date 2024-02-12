@@ -28,7 +28,7 @@ function ChallengesCard({ object, thumbnail, title }) {
 				>
 					{object.readingStatus}
 				</Button>
-				<NoteInput />
+				<NoteInput objectId={object.id} />
 			</div>
 		</Box>
 	);
