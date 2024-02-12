@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { useLocalStorageData } from "../Hooks/useLocalStorageData";
 
 const SavedBooksContext = createContext({
 	savedBooks: undefined,
@@ -7,9 +6,10 @@ const SavedBooksContext = createContext({
 });
 
 export function SavedBooksProvider({ children }) {
-	const SavedBooksFromLocalStorage = useLocalStorageData();
+	const SavedBooksFromLocalStorage = JSON.parse(
+		window.localStorage.getItem("saved-books")
+	);
 	const [savedBooksState, setSavedBooks] = useState(SavedBooksFromLocalStorage);
-	console.log(savedBooksState);
 
 	function addBook(book) {
 		// check if the localStorage has books data
@@ -34,7 +34,6 @@ export function SavedBooksProvider({ children }) {
 			// if the localStorage doesn't contain any object, update the array state with the book
 			setSavedBooks(() => [book]);
 		}
-		console.log(book);
 	}
 
 	return (
