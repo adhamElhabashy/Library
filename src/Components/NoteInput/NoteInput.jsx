@@ -53,7 +53,10 @@ function NoteInput({ objectId }) {
 				<Button
 					variant="contained"
 					sx={{ padding: "15px 30px" }}
-					onClick={(e) => addNote(objectId, savedBooks, note)}
+					onClick={(e) => {
+						addNote(objectId, savedBooks, note);
+						setNote("");
+					}}
 				>
 					Add
 				</Button>
