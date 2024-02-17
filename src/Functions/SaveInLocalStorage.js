@@ -13,11 +13,15 @@ export function saveInLocalStorage(object, readingStatusParam) {
 
 	// search in the localStorage json for the same object as the selected book
 	if (theLocalStorageObject) {
-		storageArray.splice(storageArray.indexOf(theLocalStorageObject), 1, {
-			...object,
-			readingStatus: readingStatusParam,
-			notes: [],
-		});
+		if (readingStatusParam !== "none") {
+			storageArray.splice(storageArray.indexOf(theLocalStorageObject), 1, {
+				...object,
+				readingStatus: readingStatusParam,
+				notes: [],
+			});
+		} else {
+			storageArray.splice(storageArray.indexOf(theLocalStorageObject), 1);
+		}
 	} else {
 		storageArray.push({
 			...object,
