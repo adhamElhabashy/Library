@@ -47,21 +47,27 @@ function BookPage() {
 						</div>
 					</div>
 				</div>
-				<div className="notes">
-					<Typography variant="h3" textAlign={"center"} color={"primary.dark"}>
-						Notes
-					</Typography>
-					{book?.notes.map((note) => (
-						<div className="note">
-							<Typography variant="string" color={"primary.dark"}>
-								{note}
-							</Typography>
-							<IconButton>
-								<Delete sx={{ color: "primary.dark" }} />
-							</IconButton>
-						</div>
-					))}
-				</div>
+				{book?.notes && (
+					<div className="notes">
+						<Typography
+							variant="h3"
+							textAlign={"center"}
+							color={"primary.dark"}
+						>
+							Notes
+						</Typography>
+						{book?.notes.map((note) => (
+							<div className="note">
+								<Typography variant="string" color={"primary.dark"}>
+									{note}
+								</Typography>
+								<IconButton>
+									<Delete sx={{ color: "primary.dark" }} />
+								</IconButton>
+							</div>
+						))}
+					</div>
+				)}
 			</Container>
 		</Box>
 	);
