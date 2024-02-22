@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 import { fetchBooksSearch } from "../../../Features/BooksSearchSlice";
 
 function SearchBar() {
-	// added search functionality
-	// need to solve responsiveness
 	const theme = useTheme();
 	const dispatch = useDispatch();
 	const inputRef = useRef();
@@ -30,7 +28,7 @@ function SearchBar() {
 					padding: "15px 25px",
 					position: "absolute",
 					border: "1px solid ",
-					left: "65%",
+					right: "0%",
 					borderColor: "primary.dark",
 					color: "primary.dark",
 					fontWeight: "bold",
