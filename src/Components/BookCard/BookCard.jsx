@@ -8,6 +8,10 @@ import { Link } from "react-router-dom";
 function BookCard({ object, thumbnail, title, authors }) {
 	const booksContext = useContext(SavedBooksContext);
 
+	const bookCheck = booksContext.savedBooks?.find(
+		(ele) => ele.id === object.id
+	);
+
 	return (
 		<Box className="book-card" sx={{ bgcolor: "primary.light" }}>
 			<div className="face">
@@ -31,48 +35,59 @@ function BookCard({ object, thumbnail, title, authors }) {
 					{authors}
 				</Typography>
 				<div className="action-buttons">
-					<Button
-						variant="outlined"
-						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
-						onClick={() => {
-							saveInLocalStorage(object, "will read");
-							// update the context array with the new books
-							booksContext.addBookToTheList({
-								...object,
-								readingStatus: "will read",
-							});
-						}}
-					>
-						Will Read
-					</Button>
-					<Button
-						variant="outlined"
-						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
-						onClick={() => {
-							saveInLocalStorage(object, "reading");
-							// update the context array with the new books
-							booksContext.addBookToTheList({
-								...object,
-								readingStatus: "reading",
-							});
-						}}
-					>
-						Reading
-					</Button>
-					<Button
-						variant="outlined"
-						sx={{ color: "primary.dark", borderColor: "primary.dark" }}
-						onClick={() => {
-							saveInLocalStorage(object, "read");
-							// update the context array with the new books
-							booksContext.addBookToTheList({
-								...object,
-								readingStatus: "read",
-							});
-						}}
-					>
-						Read
-					</Button>
+					{bookCheck ? (
+						<Button
+							variant="outlined"
+							sx={{ color: "primary.dark", borderColor: "primary.dark" }}
+						>
+							{bookCheck.readingStatus}
+						</Button>
+					) : (
+						<>
+							<Button
+								variant="outlined"
+								sx={{ color: "primary.dark", borderColor: "primary.dark" }}
+								onClick={() => {
+									saveInLocalStorage(object, "will read");
+									// update the context array with the new books
+									booksContext.addBookToTheList({
+										...object,
+										readingStatus: "will read",
+									});
+								}}
+							>
+								Will Read
+							</Button>
+							<Button
+								variant="outlined"
+								sx={{ color: "primary.dark", borderColor: "primary.dark" }}
+								onClick={() => {
+									saveInLocalStorage(object, "reading");
+									// update the context array with the new books
+									booksContext.addBookToTheList({
+										...object,
+										readingStatus: "reading",
+									});
+								}}
+							>
+								Reading
+							</Button>
+							<Button
+								variant="outlined"
+								sx={{ color: "primary.dark", borderColor: "primary.dark" }}
+								onClick={() => {
+									saveInLocalStorage(object, "read");
+									// update the context array with the new books
+									booksContext.addBookToTheList({
+										...object,
+										readingStatus: "read",
+									});
+								}}
+							>
+								Read
+							</Button>
+						</>
+					)}
 				</div>
 			</div>
 		</Box>
