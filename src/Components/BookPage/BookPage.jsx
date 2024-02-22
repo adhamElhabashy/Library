@@ -56,8 +56,8 @@ function BookPage() {
 						>
 							Notes
 						</Typography>
-						{book?.notes.map((note) => (
-							<div className="note">
+						{book?.notes.map((note, index) => (
+							<div className="note" key={index}>
 								<Typography variant="string" color={"primary.dark"}>
 									{note}
 								</Typography>

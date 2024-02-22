@@ -7,9 +7,7 @@ import { addNote } from "../../Functions/addNote";
 function NoteInput({ objectId }) {
 	const [note, setNote] = React.useState("What Is Your Note");
 	const [anchorEl, setAnchorEl] = useState(null);
-	const [savedBooks, setSavedBooks] = useState(
-		JSON.parse(window.localStorage.getItem("saved-books"))
-	);
+
 	const open = Boolean(anchorEl);
 	const id = open ? "simple-popover" : undefined;
 
@@ -20,10 +18,6 @@ function NoteInput({ objectId }) {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
-
-	useEffect(() => {
-		setSavedBooks(JSON.parse(window.localStorage.getItem("saved-books")));
-	}, [window.localStorage.getItem("saved-books")]);
 
 	return (
 		<div className="note-input">
@@ -54,7 +48,7 @@ function NoteInput({ objectId }) {
 					variant="contained"
 					sx={{ padding: "15px 30px" }}
 					onClick={(e) => {
-						addNote(objectId, savedBooks, note);
+						addNote(objectId, note);
 						setNote("");
 					}}
 				>
