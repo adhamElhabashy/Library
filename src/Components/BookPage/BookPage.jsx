@@ -1,13 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./BookPage.css";
 import { useParams } from "react-router-dom";
 import { useBookWithId } from "../../Hooks/useBookWithId.js";
-import { Box, Container, IconButton, Paper, Typography } from "@mui/material";
+import { Box, Container, IconButton, Typography } from "@mui/material";
 import { Delete } from "@mui/icons-material";
 
 function BookPage() {
 	const { bookId } = useParams();
-	const book = useBookWithId(bookId);
+
+	const [book, setBook] = useState(useBookWithId(bookId));
+
+	const localStorageArray = JSON.parse(
+		window.localStorage.getItem("saved-books")
+	);
+
+	const bookIndex = localStorageArray.indexOf(book);
+
+	function removeNote(noteNumber) {
+		const updatedNotes = book.notes.filter((ele) => ele.number !== noteNumber);
+
+		const updatedBook = { ...book, notes: updatedNotes };
+
+		setBook(updatedBook);
+
+		localStorageArray.splice(bookIndex, 1, updatedBook);
+
+		const jsonObject = JSON.stringify(localStorageArray);
+
+		window.localStorage.setItem("saved-books", jsonObject);
+	}
 
 	return (
 		<Box
@@ -56,12 +77,16 @@ function BookPage() {
 						>
 							Notes
 						</Typography>
-						{book?.notes.map((note, index) => (
+						{book?.notes.map((ele, index) => (
 							<div className="note" key={index}>
 								<Typography variant="string" color={"primary.dark"}>
-									{note}
+									{ele.note}
 								</Typography>
-								<IconButton>
+								<IconButton
+									onClick={() => {
+										removeNote(ele.number);
+									}}
+								>
 									<Delete sx={{ color: "primary.dark" }} />
 								</IconButton>
 							</div>
