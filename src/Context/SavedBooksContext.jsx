@@ -21,11 +21,15 @@ export function SavedBooksProvider({ children }) {
 
 			if (theLocalStorageObject) {
 				// if the condition is true update the book with new reading state
-				savedBooksState.splice(
-					savedBooksState.indexOf(theLocalStorageObject),
-					1,
-					book
-				);
+
+				setSavedBooks(() => {
+					savedBooksState.splice(
+						savedBooksState.indexOf(theLocalStorageObject),
+						1,
+						book
+					);
+					return savedBooksState;
+				});
 			} else {
 				// if the condition is false just add the book to the state
 				setSavedBooks(() => [...savedBooksState, book]);
