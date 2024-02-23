@@ -76,9 +76,6 @@ function Header() {
 						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
-						<BookSharp className="menu-icons" sx={{ paddingRight: 1 }} />
-					</MenuItem>
-					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
 						<Search className="menu-icons" sx={{ paddingRight: 1 }} />
 						<Link
 							to={"/Library/search"}
@@ -94,15 +91,6 @@ function Header() {
 							style={{ textDecoration: "none", color: "inherit" }}
 						>
 							Your Books
-						</Link>
-					</MenuItem>
-					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
-						<Settings className="menu-icons" sx={{ paddingRight: 1 }} />
-						<Link
-							to={"/Library/settings"}
-							style={{ textDecoration: "none", color: "inherit" }}
-						>
-							Settings
 						</Link>
 					</MenuItem>
 				</Menu>

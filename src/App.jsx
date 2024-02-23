@@ -12,7 +12,6 @@ import Search from "./Sections/Search/Search";
 import Challenges from "./Sections/Challenges/Challenges";
 import BookPage from "./Components/BookPage/BookPage";
 import Topic from "./Sections/Topic/Topic";
-import Settings from "./Sections/Settings/Settings";
 import NoPageFound from "./Sections/NoPageFound/NoPageFound";
 
 const theme = createTheme({
@@ -35,7 +34,6 @@ function App() {
 				<Route path="/Library/search" element={<Search />} />
 				<Route path="/Library/saved-books" element={<Challenges />} />
 				<Route path="/Library/books/:bookId" element={<BookPage />} />
-				<Route path="/Library/settings" element={<Settings />} />
 				<Route path="*" element={<NoPageFound />} />
 			</Routes>
 		</ThemeProvider>
