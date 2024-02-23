@@ -13,6 +13,7 @@ function Challenges() {
 					padding: "100px 0",
 					bgcolor: "primary.main",
 					position: "relative",
+					minHeight: "100vh",
 				}}
 			>
 				<SectionTitle>Your Challenges and Saved Books</SectionTitle>
