@@ -35,7 +35,10 @@ function Header() {
 						<MenuBook fontSize="large" />
 					</IconButton>
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						<Link to={"/"} style={{ color: "inherit", textDecoration: "none" }}>
+						<Link
+							to={"/Library/"}
+							style={{ color: "inherit", textDecoration: "none" }}
+						>
 							The Library
 						</Link>
 					</Typography>
@@ -66,7 +69,7 @@ function Header() {
 					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
 						<Interests className="menu-icons" sx={{ paddingRight: 1 }} />
 						<Link
-							to={"/favourite"}
+							to={"/Library/favourite"}
 							style={{ textDecoration: "none", color: "inherit" }}
 						>
 							For You
@@ -74,14 +77,11 @@ function Header() {
 					</MenuItem>
 					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
 						<BookSharp className="menu-icons" sx={{ paddingRight: 1 }} />
-						<Link style={{ textDecoration: "none", color: "inherit" }}>
-							Trending Books
-						</Link>
 					</MenuItem>
 					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
 						<Search className="menu-icons" sx={{ paddingRight: 1 }} />
 						<Link
-							to={"/search"}
+							to={"/Library/search"}
 							style={{ textDecoration: "none", color: "inherit" }}
 						>
 							Search
@@ -90,7 +90,7 @@ function Header() {
 					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
 						<Bookmarks className="menu-icons" sx={{ paddingRight: 1 }} />
 						<Link
-							to={"/saved-books"}
+							to={"/Library/saved-books"}
 							style={{ textDecoration: "none", color: "inherit" }}
 						>
 							Your Books
@@ -99,7 +99,7 @@ function Header() {
 					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
 						<Settings className="menu-icons" sx={{ paddingRight: 1 }} />
 						<Link
-							to={"/settings"}
+							to={"/Library/settings"}
 							style={{ textDecoration: "none", color: "inherit" }}
 						>
 							Settings

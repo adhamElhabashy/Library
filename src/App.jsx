@@ -30,12 +30,12 @@ function App() {
 		<ThemeProvider theme={responsiveFontSizes(theme)}>
 			<Header />
 			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/favourite" element={<Topic />} />
-				<Route path="/search" element={<Search />} />
-				<Route path="/saved-books" element={<Challenges />} />
-				<Route path="/books/:bookId" element={<BookPage />} />
-				<Route path="/settings" element={<Settings />} />
+				<Route path="/Library/" element={<Home />} />
+				<Route path="/Library/favourite" element={<Topic />} />
+				<Route path="/Library/search" element={<Search />} />
+				<Route path="/Library/saved-books" element={<Challenges />} />
+				<Route path="/Library/books/:bookId" element={<BookPage />} />
+				<Route path="/Library/settings" element={<Settings />} />
 				<Route path="*" element={<NoPageFound />} />
 			</Routes>
 		</ThemeProvider>
