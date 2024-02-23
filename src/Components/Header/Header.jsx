@@ -16,6 +16,7 @@ import {
 	Settings,
 } from "@mui/icons-material";
 import { Container } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Header() {
 	const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,7 +35,9 @@ function Header() {
 						<MenuBook fontSize="large" />
 					</IconButton>
 					<Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-						The Library
+						<Link to={"/"} style={{ color: "inherit", textDecoration: "none" }}>
+							The Library
+						</Link>
 					</Typography>
 					<div>
 						<IconButton
@@ -60,48 +63,47 @@ function Header() {
 					}}
 					sx={{ marginRight: "30px !important" }}
 				>
-					<MenuItem onClick={handleClose}>
-						<Interests
-							className="menu-icons"
-							color="primary.dark"
-							sx={{ paddingRight: 1, color: "primary.dark" }}
-						/>
-						For You
+					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
+						<Interests className="menu-icons" sx={{ paddingRight: 1 }} />
+						<Link
+							to={"/favourite"}
+							style={{ textDecoration: "none", color: "inherit" }}
+						>
+							For You
+						</Link>
 					</MenuItem>
-					<MenuItem onClick={handleClose}>
-						<BookSharp
-							className="menu-icons"
-							sx={{ paddingRight: 1, color: "primary.dark" }}
-						/>
-						Trending Books
+					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
+						<BookSharp className="menu-icons" sx={{ paddingRight: 1 }} />
+						<Link style={{ textDecoration: "none", color: "inherit" }}>
+							Trending Books
+						</Link>
 					</MenuItem>
-					<MenuItem onClick={handleClose}>
-						<Search
-							className="menu-icons"
-							sx={{ paddingRight: 1, color: "primary.dark" }}
-						/>
-						Search
+					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
+						<Search className="menu-icons" sx={{ paddingRight: 1 }} />
+						<Link
+							to={"/search"}
+							style={{ textDecoration: "none", color: "inherit" }}
+						>
+							Search
+						</Link>
 					</MenuItem>
-					<MenuItem onClick={handleClose}>
-						<EmojiEventsIcon
-							className="menu-icons"
-							sx={{ color: "primary.dark" }}
-						/>
-						Challenges
+					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
+						<Bookmarks className="menu-icons" sx={{ paddingRight: 1 }} />
+						<Link
+							to={"/saved-books"}
+							style={{ textDecoration: "none", color: "inherit" }}
+						>
+							Your Books
+						</Link>
 					</MenuItem>
-					<MenuItem onClick={handleClose}>
-						<Bookmarks
-							className="menu-icons"
-							sx={{ paddingRight: 1, color: "primary.dark" }}
-						/>
-						Your Books
-					</MenuItem>
-					<MenuItem onClick={handleClose}>
-						<Settings
-							className="menu-icons"
-							sx={{ paddingRight: 1, color: "primary.dark" }}
-						/>
-						Settings
+					<MenuItem onClick={handleClose} sx={{ color: "primary.dark" }}>
+						<Settings className="menu-icons" sx={{ paddingRight: 1 }} />
+						<Link
+							to={"/settings"}
+							style={{ textDecoration: "none", color: "inherit" }}
+						>
+							Settings
+						</Link>
 					</MenuItem>
 				</Menu>
 			</AppBar>
