@@ -1,3 +1,3 @@
 export function getRandomNumber() {
-	return Math.floor(Math.random() * 40);
+	return Math.floor(Math.random() * 10);
 }

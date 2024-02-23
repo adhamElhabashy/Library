@@ -1,0 +1,19 @@
+.search-bar {
+	position: relative;
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+}
+
+.search-input {
+	width: 100%;
+	padding: 20px 40px;
+	border-radius: 25px;
+	border: none;
+}
+
+.search-input:focus {
+	outline: none;
+}
