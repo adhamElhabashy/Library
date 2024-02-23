@@ -23,7 +23,7 @@ function ChallengesCard({ object, thumbnail, title }) {
 			className="challenge-card"
 			sx={{ display: "flex", justifyContent: "center" }}
 		>
-			<Link to={`/books/${object?.id}`}>
+			<Link to={`/Library/books/${object?.id}`}>
 				<div className="img-holder">
 					<img src={thumbnail} alt={title + " book"} />
 				</div>

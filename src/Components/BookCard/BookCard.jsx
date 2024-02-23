@@ -15,7 +15,7 @@ function BookCard({ object, thumbnail, title, authors }) {
 	return (
 		<Box className="book-card" sx={{ bgcolor: "primary.light" }}>
 			<div className="face">
-				<Link to={`/books/${object?.id}`}>
+				<Link to={`/Library/books/${object?.id}`}>
 					<div className="img-holder">
 						<img src={thumbnail} alt={title + " book"} />
 					</div>
