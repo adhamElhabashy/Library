@@ -9,6 +9,21 @@
 	display: flex;
 	margin-bottom: 20px;
 }
+@media (max-width: 767px) {
+	.book-description {
+		flex-direction: column;
+	}
+	.image-holder {
+		margin: 20px auto;
+	}
+	.book-details {
+		margin-left: 0px !important;
+		text-align: center;
+	}
+	.sub-details {
+		flex-direction: column;
+	}
+}
 .book-details {
 	margin-left: 30px;
 }

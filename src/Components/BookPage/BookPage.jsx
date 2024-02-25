@@ -68,10 +68,10 @@ function BookPage() {
 								{book?.volumeInfo.description}
 							</Typography>
 							<div className="sub-details">
-								<Typography variant="h6" color={"primary.dark"}>
+								<Typography variant="h6" color={"primary.dark"} gutterBottom>
 									Categories: {book?.volumeInfo.categories.join(", ")}
 								</Typography>
-								<Typography variant="h6" color={"primary.dark"}>
+								<Typography variant="h6" color={"primary.dark"} gutterBottom>
 									pages: {book?.volumeInfo.pageCount}
 								</Typography>
 								<Typography variant="h6" color={"primary.dark"}>
