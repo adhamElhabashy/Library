@@ -37,8 +37,3 @@ The Library is a project that can help the book lovers to organise their books. 
 - [Axios](https://axios-http.com/)
 - [Vite](https://vitejs.dev/)
 - [Google Books API](https://developers.google.com/books/)
-
-## Screen Shots
-
-![ScreenShot_2.png](generalAssets/ScreenShot_2.png)
-![ScreenShot_3.png](generalAssets/ScreenShot_3.png)
