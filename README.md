@@ -4,21 +4,21 @@
 
 ## Overview
 
-The Library is a project that can help the book lovers to organise their books. Its idea is got from good reads as a resource of inspiration, and it gets the data from google books API.
+The Library is a project that can help book lovers to organize their books. Its idea is derived from good reads as a resource of inspiration, and it gets the data from Google Books API.
 
 ## Features
 
-- It shows you variety of books releated to web development (Specifying categories will be implemented soon)
-- You can search for the books you want by using the search bar and entering title, or key word for the book
+- It shows you a variety of books related to web development (Specifying categories will be implemented soon)
+- You can search for the books you want by using the search bar and entering the title, or keyword for the book
 - Click on the card to go to the book page and get more information about it
-- hover on the card so you can specify status for it like Will Read, Reading, Read
-- From the challenges page, you can click on ADD NOTE button to add your notes about the book, and it will be shown in the book page
+- hover on the card so you can specify the status for it like Will Read, Reading, Read
+- From the challenges page, you can click on the ADD NOTE button to add your notes about the book, and it will be shown on the book page
 
 ## Running The Project Locally
 
 **Live Preview:** https://adhamelhabashy.github.io/Library/
 
-1. First make sure you have npm installed
+1. First, make sure you have npm installed
 2. clone this repo by using
    `git clone https://github.com/adhamElhabashy/Library.git`
 3. go to the project folder by using
