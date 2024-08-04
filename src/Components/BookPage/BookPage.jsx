@@ -1,40 +1,49 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./BookPage.css";
 import { useParams } from "react-router-dom";
 import { useBookWithId } from "../../Hooks/useBookWithId.js";
 import { Box, Container, IconButton, Typography } from "@mui/material";
 import { Delete } from "@mui/icons-material";
+import { saveInLocalStorage } from "../../Functions/SaveInLocalStorage";
+import SavedBooksContext from "../../Context/SavedBooksContext";
+import { useRemoveNote } from "../../Hooks/useRemoveNote.js";
 
 function BookPage() {
 	const { bookId } = useParams();
 	const [book, setBook] = useState(null);
+	const [notes, setNotes] = useState([]);
+	const savedBooksContext = useContext(SavedBooksContext);
 
 	useEffect(() => {
-		useBookWithId(bookId)
-			.then((bookData) => setBook(bookData))
-			.catch((error) => {
-				console.error("Error fetching book:", error);
-			});
-	}, [bookId]);
+		const bookInLocalStorage = JSON.parse(
+			window.localStorage.getItem("saved-books")
+		).find((book) => book.id === bookId);
+		console.log(bookInLocalStorage);
 
-	const localStorageArray = JSON.parse(
-		window.localStorage.getItem("saved-books")
-	);
+		if (!bookInLocalStorage) {
+			useBookWithId(bookId)
+				.then((bookData) => {
+					setBook(bookData);
+				})
+				.catch((error) => {
+					console.error("Error fetching book:", error);
+				});
+		} else {
+			setBook(bookInLocalStorage);
+			setNotes(bookInLocalStorage.notes);
+		}
+	}, []);
 
-	const bookIndex = localStorageArray.indexOf(book);
+	function handleClick(index) {
+		const newBook = useRemoveNote(index, book);
+		setBook(newBook);
+		setNotes(newBook.notes);
 
-	function removeNote(noteNumber) {
-		const updatedNotes = book.notes.filter((ele) => ele.number !== noteNumber);
-
-		const updatedBook = { ...book, notes: updatedNotes };
-
-		setBook(updatedBook);
-
-		localStorageArray.splice(bookIndex, 1, updatedBook);
-
-		const jsonObject = JSON.stringify(localStorageArray);
-
-		window.localStorage.setItem("saved-books", jsonObject);
+		saveInLocalStorage(newBook, newBook.readingStatus);
+		savedBooksContext.addBookToTheList({
+			...newBook,
+		});
+		console.log(notes);
 	}
 
 	if (book) {
@@ -78,33 +87,33 @@ function BookPage() {
 									Published: {book?.volumeInfo.publishedDate}
 								</Typography>
 							</div>
+							{notes && (
+								<div className="notes">
+									<Typography
+										variant="h3"
+										textAlign={"center"}
+										color={"primary.dark"}
+									>
+										Notes
+									</Typography>
+									{notes.map((ele, index) => (
+										<div className="note" key={index}>
+											<Typography variant="string" color={"primary.dark"}>
+												{ele}
+											</Typography>
+											<IconButton
+												onClick={() => {
+													handleClick(index);
+												}}
+											>
+												<Delete sx={{ color: "primary.dark" }} />
+											</IconButton>
+										</div>
+									))}
+								</div>
+							)}
 						</div>
 					</div>
-					{book?.notes && (
-						<div className="notes">
-							<Typography
-								variant="h3"
-								textAlign={"center"}
-								color={"primary.dark"}
-							>
-								Notes
-							</Typography>
-							{book?.notes.map((ele, index) => (
-								<div className="note" key={index}>
-									<Typography variant="string" color={"primary.dark"}>
-										{ele.note}
-									</Typography>
-									<IconButton
-										onClick={() => {
-											removeNote(ele.number);
-										}}
-									>
-										<Delete sx={{ color: "primary.dark" }} />
-									</IconButton>
-								</div>
-							))}
-						</div>
-					)}
 				</Container>
 			</Box>
 		);
