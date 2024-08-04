@@ -2,10 +2,31 @@ import React, { useEffect, useState } from "react";
 import Popover from "@mui/material/Popover";
 import TextField from "@mui/material/TextField";
 import { Button } from "@mui/material";
-import { addNote } from "../../Functions/addNote";
+import { saveInLocalStorage } from "../../Functions/SaveInLocalStorage";
+import SavedBooksContext from "../../Context/SavedBooksContext";
+import { useAddNote } from "../../Hooks/useAddNote";
 
 function NoteInput({ objectId }) {
 	const [note, setNote] = React.useState("What Is Your Note");
+	const [localStorageBooks, setLocalStorageBooks] = React.useState(
+		JSON.parse(window.localStorage.getItem("saved-books"))
+	);
+	const [book, setBook] = React.useState(
+		localStorageBooks.find((book) => book.id == objectId)
+	);
+
+	const savedBooksContext = React.useContext(SavedBooksContext);
+
+	function handleAddNote() {
+		const newBook = useAddNote(book, note);
+		setBook(newBook);
+
+		saveInLocalStorage(newBook, newBook.readingStatus);
+		savedBooksContext.addBookToTheList({
+			...newBook,
+		});
+	}
+
 	const [anchorEl, setAnchorEl] = useState(null);
 
 	const open = Boolean(anchorEl);
@@ -48,7 +69,7 @@ function NoteInput({ objectId }) {
 					variant="contained"
 					sx={{ padding: "15px 30px" }}
 					onClick={(e) => {
-						addNote(objectId, note);
+						handleAddNote();
 						setNote("");
 					}}
 				>

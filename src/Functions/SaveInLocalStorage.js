@@ -17,7 +17,6 @@ export function saveInLocalStorage(object, readingStatusParam) {
 			storageArray.splice(storageArray.indexOf(theLocalStorageObject), 1, {
 				...object,
 				readingStatus: readingStatusParam,
-				notes: [],
 			});
 		} else {
 			storageArray.splice(storageArray.indexOf(theLocalStorageObject), 1);
@@ -26,7 +25,6 @@ export function saveInLocalStorage(object, readingStatusParam) {
 		storageArray.push({
 			...object,
 			readingStatus: readingStatusParam,
-			notes: [],
 		});
 	}
 
